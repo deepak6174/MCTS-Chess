@@ -12,7 +12,7 @@ MINTIME = 0.1
 TIMEDIV = 25.0
 NODES = 800
 C = 3.0
-
+moves_uci = list()
 def send(str):
     sys.stdout.write(str)
     sys.stdout.write("\n")
@@ -34,8 +34,10 @@ def process_position(tokens):
         return board
 
     if tokens[offset] == 'moves':
+        moves_uci.clear()
         for i in range(offset+1, len(tokens)):
             board.push_uci(tokens[i])
+            moves_uci.append(tokens[i])
 
     # deal with cutechess bug where a drawn positions is passed in
     if board.can_claim_draw():
@@ -99,22 +101,24 @@ def uci_loop(state):
             
             if my_time != None:
                 # search with time limit per move
-                mcts = MCTS(timeLimit=my_time)
-                best_move = mcts.search(state)
+                mcts = MCTS(timeLimit=5500, moves=moves_uci)
+                best_move, score = mcts.search(state)
 
             else:          
                 # search placeholder for various time controls
-                mcts = MCTS(timeLimit=1000)
-                best_move = mcts.search(state)
+                mcts = MCTS(timeLimit=5500, moves=moves_uci)
+                best_move, score = mcts.search(state)
+            
+            
             
             # return best move to the GUI
-            # send('info score cp %s' % score)
+            send('info score cp %s' % score)
             send('bestmove %s' % best_move)
             
             
             
             
-            
+            # 1. e4 e5 2. Nf3 Nc6 3. Bb5 
             
             
             

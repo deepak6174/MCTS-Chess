@@ -21,7 +21,7 @@
 #elif defined(USE_SSE41)
 #include <smmintrin.h>
 
-#elif defined(USE_SSE3)
+#elif defined(USE_SSSE3)
 #include <tmmintrin.h>
 
 #elif defined(USE_SSE2)
@@ -1201,20 +1201,14 @@ enum {
 
 static bool verify_net(const void *evalData, size_t size)
 {
-  if (size != 21022697) return false;
-
+  // if (size != 21022697) return false;
 
   const char *d = (const char*)evalData;
   if (readu_le_u32(d) != NnueVersion) return false;
-
   if (readu_le_u32(d + 4) != 0x3e5aa6eeU) return false;
-
   if (readu_le_u32(d + 8) != 177) return false;
-
   if (readu_le_u32(d + TransformerStart) != 0x5d69d7b8) return false;
-
   if (readu_le_u32(d + NetworkStart) != 0x63337156) return false;
-
 
   return true;
 }
@@ -1257,12 +1251,14 @@ static bool load_eval_file(const char *evalFile)
     FD fd = open_file(evalFile);
     if (fd == FD_ERR)
     {
+      printf("gjgjhg"); 
       return false;
     }
     evalData = map_file(fd, &mapping);
     size = file_size(fd);
     close_file(fd);
   }
+
   bool success = verify_net(evalData, size);
   if (success)
     init_weights(evalData);

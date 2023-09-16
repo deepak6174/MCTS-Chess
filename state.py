@@ -19,7 +19,7 @@ class State:
             states.append(str(move))
         return states
     
-    def takeAction(self, move):
+    def take_action(self, move):
         new_state = State(self)
         new_state.board.push(chess.Move.from_uci(move))
         return new_state

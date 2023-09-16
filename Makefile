@@ -14,7 +14,7 @@ HPP = misc.h nnue.h
 DEFINES =
 DEFINES += -DIS_64BIT 
 ifeq ($(COMP),$(filter $(COMP),gcc clang win icpc))
-#   DEFINES += -DUSE_AVX2 -mavx2
+  //DEFINES += -DUSE_AVX2 -mavx2
   DEFINES += -DUSE_SSE41 -msse4.1
   DEFINES += -DUSE_SSE3 -msse3
   DEFINES += -DUSE_SSE2 -msse2
