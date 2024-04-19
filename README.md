@@ -16,3 +16,7 @@ This project explores modifications to the Monte Carlo Tree Search (MCTS) algori
 - However, adjusting the exploration constant in **IEC-MCTS** had a marginal impact, with only a 15% win rate improvement over standard MCTS.
 - The research validates the potential of modifications like opening databases to enhance the capabilities of MCTS in chess.
 
+
+
+https://github.com/deepak6174/MCTS-Chess/assets/72945822/fc2ade36-db87-4bdc-9696-f5991b41334d
+
