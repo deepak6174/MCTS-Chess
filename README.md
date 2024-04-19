@@ -20,3 +20,8 @@ This project explores modifications to the Monte Carlo Tree Search (MCTS) algori
 
 https://github.com/deepak6174/MCTS-Chess/assets/72945822/fc2ade36-db87-4bdc-9696-f5991b41334d
 
+
+
+[Overview of Research on Opening Books in Monte Carlo Tree Search.pptx](https://github.com/deepak6174/MCTS-Chess/files/15032050/Overview.of.Research.on.Opening.Books.in.Monte.Carlo.Tree.Search.2.pptx)
+<br>
+[20493345_COMP4026_dissertation.pdf](https://github.com/deepak6174/MCTS-Chess/files/15032053/20493345_COMP4026_dissertation.7.pdf)
